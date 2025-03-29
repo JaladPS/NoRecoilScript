@@ -12,7 +12,7 @@
             --hover-color: #239a3b;
             --dark-bg: #1a1a1a;
         }
-        
+
         body {
             font-family: 'Tahoma', Arial, sans-serif;
             line-height: 1.6;
@@ -22,13 +22,17 @@
             padding: 0;
             transition: all 0.3s ease;
         }
-        
+
+        body[dir="rtl"] {
+            font-family: 'Tahoma', Arial, sans-serif;
+        }
+
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
         }
-        
+
         header {
             background-color: var(--dark-bg);
             color: white;
@@ -39,24 +43,24 @@
             background-image: linear-gradient(to right, #1a1a1a, #2d2d2d);
             position: relative;
         }
-        
+
         h1 {
             color: white;
             margin-bottom: 10px;
             font-size: 2.5rem;
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
-        
+
         .logo {
             height: 100px;
             margin-bottom: 20px;
             transition: transform 0.3s ease;
         }
-        
+
         .logo:hover {
             transform: scale(1.05);
         }
-        
+
         .description {
             max-width: 800px;
             margin: 0 auto 30px;
@@ -64,7 +68,22 @@
             line-height: 1.8;
             color: #ddd;
         }
-        
+
+        .news-ticker {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .news-ticker span {
+            margin: 0 10px;
+        }
+
         .download-section {
             background-color: white;
             border-radius: 10px;
@@ -74,7 +93,7 @@
             text-align: center;
             border: 1px solid #e1e1e1;
         }
-        
+
         .btn-download {
             display: inline-block;
             background-color: var(--primary-color);
@@ -90,19 +109,42 @@
             cursor: pointer;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-        
+
         .btn-download:hover {
             background-color: var(--hover-color);
             transform: translateY(-3px);
             box-shadow: 0 6px 12px rgba(45, 186, 78, 0.3);
         }
-        
+
         .version-info {
             font-size: 0.9rem;
             color: #666;
             margin-top: 15px;
         }
-        
+
+        .screenshots {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .screenshot {
+            max-width: 80%;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            border: 1px solid #ddd;
+        }
+
+        .screenshot:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
         .video-section {
             background-color: white;
             border-radius: 10px;
@@ -111,7 +153,30 @@
             margin-bottom: 40px;
             border: 1px solid #e1e1e1;
         }
-        
+
+        .videos-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin: 30px 0;
+        }
+
+        .video-wrapper {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e1e1e1;
+        }
+
+        .video-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
         .video-container {
             position: relative;
             padding-bottom: 56.25%;
@@ -121,7 +186,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-        
+
         .video-container iframe {
             position: absolute;
             top: 0;
@@ -130,7 +195,7 @@
             height: 100%;
             border-radius: 8px;
         }
-        
+
         .features {
             display: flex;
             flex-wrap: wrap;
@@ -138,7 +203,7 @@
             margin: 40px 0;
             gap: 20px;
         }
-        
+
         .feature {
             flex-basis: calc(33.333% - 20px);
             background: white;
@@ -150,63 +215,93 @@
             transition: transform 0.3s ease;
             border: 1px solid #e1e1e1;
         }
-        
+
         .feature:hover {
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
-        
+
         .feature-icon {
             font-size: 2.5rem;
             color: var(--primary-color);
             margin-bottom: 15px;
         }
-        
-        footer {
+
+        .stats-section {
             text-align: center;
-            padding: 30px;
-            background-color: var(--dark-bg);
-            color: white;
-            margin-top: 50px;
-            border-top: 1px solid #333;
+            margin: 40px 0;
         }
-        
-        .screenshots {
+
+        .stats {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            justify-content: space-around;
             gap: 20px;
-            margin: 30px 0;
+            margin-top: 30px;
         }
-        
-        .screenshot {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
-            border: 1px solid #ddd;
-        }
-        
-        .screenshot:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        
-        .faq-item {
+
+        .stat {
             background: white;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .stat i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .stat h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin: 10px 0;
+        }
+
+        .setup-steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .step {
+            flex-basis: calc(25% - 20px);
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .step h3 {
+            color: var(--primary-color);
+        }
+
+        .testimonials {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .testimonial {
+            flex-basis: calc(33.333% - 20px);
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
             border: 1px solid #e1e1e1;
         }
-        
-        .faq-item h3 {
+
+        .testimonial h4 {
             color: var(--primary-color);
-            margin-top: 0;
+            margin-top: 10px;
         }
-        
+
         .pricing {
             display: flex;
             flex-wrap: wrap;
@@ -214,7 +309,7 @@
             gap: 20px;
             margin: 30px 0;
         }
-        
+
         .price-plan {
             background: white;
             padding: 25px;
@@ -225,17 +320,17 @@
             border: 1px solid var(--primary-color);
             transition: all 0.3s ease;
         }
-        
+
         .price-plan:hover {
             transform: translateY(-5px);
         }
-        
+
         .price-plan.recommended {
             border: 2px solid var(--primary-color);
             transform: scale(1.05);
             position: relative;
         }
-        
+
         .recommended-badge {
             position: absolute;
             top: -10px;
@@ -247,21 +342,82 @@
             font-size: 0.8rem;
             font-weight: bold;
         }
-        
+
         .price-plan h3 {
             color: var(--primary-color);
             font-size: 1.5rem;
             margin-top: 10px;
         }
-        
+
         .price {
             font-size: 2rem;
             font-weight: bold;
             color: var(--primary-color);
             margin: 15px 0;
         }
-        
-        /* Language Switcher Styles */
+
+        .btn-subscribe {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-subscribe:hover {
+            background-color: var(--hover-color);
+        }
+
+        .faq-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            border: 1px solid #e1e1e1;
+        }
+
+        .faq-item h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .floating-contact {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .floating-contact:hover {
+            background-color: var(--hover-color);
+            transform: translateY(-3px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--dark-bg);
+            color: white;
+            margin-top: 50px;
+            border-top: 1px solid #333;
+        }
+
         .language-switcher {
             position: absolute;
             top: 20px;
@@ -270,7 +426,7 @@
             display: flex;
             gap: 5px;
         }
-        
+
         .lang-btn {
             background: rgba(255, 255, 255, 0.2);
             border: none;
@@ -284,42 +440,115 @@
             align-items: center;
             gap: 5px;
         }
-        
+
         .lang-btn.active {
             background: var(--primary-color);
             font-weight: bold;
         }
-        
+
         .lang-btn:hover {
             background: rgba(255, 255, 255, 0.3);
         }
-        
+
+        .scroll-top {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        body[dir="rtl"] .scroll-top {
+            right: auto;
+            left: 20px;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background-color: var(--hover-color);
+            transform: translateY(-3px);
+        }
+
+        /* RTL specific styles */
+        body[dir="rtl"] .language-switcher {
+            right: auto;
+            left: 20px;
+        }
+
+        body[dir="rtl"] .feature,
+        body[dir="rtl"] .testimonial,
+        body[dir="rtl"] .faq-item,
+        body[dir="rtl"] .price-plan,
+        body[dir="rtl"] .stat,
+        body[dir="rtl"] .step {
+            text-align: right;
+        }
+
+        body[dir="rtl"] .recommended-badge {
+            right: auto;
+            left: 10px;
+        }
+
+        body[dir="rtl"] .floating-contact {
+            right: auto;
+            left: 20px;
+        }
+
         @media (max-width: 768px) {
-            .feature, .price-plan {
+            .feature, .price-plan, .testimonial, .stat, .step {
                 flex-basis: 100%;
             }
-            
-            .price-plan {
+
+            .price-plan, .step {
                 flex-basis: calc(50% - 20px);
             }
-            
+
             .description {
                 font-size: 1rem;
             }
-            
+
             h1 {
                 font-size: 2rem;
             }
-            
+
             .language-switcher {
                 position: static;
                 justify-content: center;
                 margin-bottom: 15px;
             }
+
+            .screenshot {
+                max-width: 100%;
+            }
+
+            .stats {
+                flex-direction: column;
+            }
+
+            body[dir="rtl"] .language-switcher {
+                left: auto;
+                right: auto;
+            }
         }
-        
+
         @media (max-width: 480px) {
-            .price-plan {
+            .price-plan, .step {
                 flex-basis: 100%;
             }
         }
@@ -328,6 +557,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
 </head>
 <body>
+    <div class="news-ticker">
+        <span data-translate="news_title">Latest News:</span> 
+        <span data-translate="news_content">Version 1.1.0 released with support for Valorant! 🎉</span>
+    </div>
+
     <header>
         <div class="container">
             <div class="language-switcher">
@@ -338,7 +572,6 @@
                     <span class="flag-icon flag-icon-us"></span> English
                 </button>
             </div>
-            
             <img src="https://i.ibb.co/kV5sDBPM/11.png" alt="NoRecoilScript Logo" class="logo">
             <h1 data-translate="title">NoRecoilScript</h1>
             <p class="description" data-translate="description">
@@ -347,88 +580,166 @@
             </p>
         </div>
     </header>
-    
+
     <div class="container">
         <section class="download-section">
             <h2><i class="fas fa-download"></i> <span data-translate="download_title">Download</span></h2>
             <p data-translate="download_desc">Download the latest version of NoRecoilScript and enjoy recoil-free gaming</p>
-            
             <a href="https://github.com/JaladPS/NoRecoilScript/releases/download/v1.0.0/NoRecoilScript.exe" class="btn-download">
                 <i class="fas fa-download"></i> <span data-translate="download_btn">Download Trial Version</span>
             </a>
-            
             <div class="version-info">
                 <p data-translate="version_info">Version: 1.0.0 | Size: 18MB | Compatible with: Windows 10/11</p>
             </div>
-            
             <div class="screenshots">
                 <img src="https://i.ibb.co/1tJp6DK2/Screenshot-2025-03-29-215439.png" alt="NoRecoilScript Interface" class="screenshot">
                 <img src="https://i.ibb.co/Q7CpD7MS/Screenshot-2025-03-29-215455.png" alt="NoRecoilScript Settings" class="screenshot">
             </div>
         </section>
-        
+
         <section class="video-section">
             <h2><i class="fas fa-video"></i> <span data-translate="video_title">How to Use</span></h2>
-            <p data-translate="video_desc">Watch how NoRecoilScript can improve your gaming performance</p>
+            <p data-translate="video_desc">Watch how to run NoRecoilScript</p>
             
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/6Bw15FHRmcc" title="NoRecoilScript Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="videos-container">
+                <!-- الفيديو الأول -->
+                <div class="video-wrapper">
+                    <div class="video-title">
+                        <i class="fas fa-play-circle"></i>
+                        <h3 data-translate="video1_title">Getting Started Guide</h3>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://i.ibb.co/GfsyB6kD/Screenshot-2025-03-30-021830.png" title="NoRecoilScript Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p data-translate="video1_desc">Learn how to install and configure NoRecoilScript</p>
+                </div>
+
+                <!-- الفيديو الثاني -->
+                <div class="video-wrapper">
+                    <div class="video-title">
+                        <i class="fas fa-trophy"></i>
+                        <h3 data-translate="video2_title">You can be the best at aiming</h3>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/6Bw15FHRmcc" title="NoRecoilScript Advanced Techniques" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p data-translate="video2_desc">See how NoRecoilScript can improve your gaming performance with a realistic experience in more than one game.</p>
+                </div>
             </div>
         </section>
-        
+
         <section>
             <h2><i class="fas fa-star"></i> <span data-translate="features_title">Features</span></h2>
             <div class="features">
                 <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-tachometer-alt"></i>
-                    </div>
-                    <h3 data-translate="feature1_title">High Performance</h3>
-                    <p data-translate="feature1_desc">Precise recoil control with minimal system resource usage</p>
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3 data-translate="feature1_title">Advanced Protection</h3>
+                    <p data-translate="feature1_desc">Sophisticated technology to avoid detection by Anti-Cheat systems like BattleEye, EasyAntiCheat.</p>
                 </div>
-                
                 <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3 data-translate="feature2_title">Advanced Protection</h3>
-                    <p data-translate="feature2_desc">Sophisticated technology to avoid detection by Anti-Cheat systems</p>
+                    <div class="feature-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <h3 data-translate="feature2_title">High Performance</h3>
+                    <p data-translate="feature2_desc">Precise recoil control with minimal system resource usage.</p>
                 </div>
-                
                 <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-gamepad"></i>
-                    </div>
-                    <h3 data-translate="feature3_title">Wide Support</h3>
-                    <p data-translate="feature3_desc">Compatible with over 20 popular games with one click</p>
+                    <div class="feature-icon"><i class="fas fa-sliders-h"></i></div>
+                    <h3 data-translate="feature3_title">Full Customization</h3>
+                    <p data-translate="feature3_desc">Fine-tune settings for each weapon according to your needs.</p>
                 </div>
-                
                 <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-sliders-h"></i>
-                    </div>
-                    <h3 data-translate="feature4_title">Full Customization</h3>
-                    <p data-translate="feature4_desc">Fine-tune settings for each weapon according to your needs</p>
+                    <div class="feature-icon"><i class="fas fa-gamepad"></i></div>
+                    <h3 data-translate="feature4_title">Wide Support</h3>
+                    <p data-translate="feature4_desc">Compatible with over 20 popular games with one click.</p>
                 </div>
-                
                 <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-sync-alt"></i>
-                    </div>
-                    <h3 data-translate="feature5_title">Regular Updates</h3>
-                    <p data-translate="feature5_desc">Weekly updates to ensure compatibility with latest game versions</p>
+                    <div class="feature-icon"><i class="fas fa-headset"></i></div>
+                    <h3 data-translate="feature5_title">24/7 Support</h3>
+                    <p data-translate="feature5_desc">Dedicated support team available around the clock.</p>
                 </div>
-                
                 <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3 data-translate="feature6_title">24/7 Support</h3>
-                    <p data-translate="feature6_desc">Dedicated support team available around the clock</p>
+                    <div class="feature-icon"><i class="fas fa-sync-alt"></i></div>
+                    <h3 data-translate="feature6_title">Regular Updates</h3>
+                    <p data-translate="feature6_desc">Weekly updates to ensure compatibility with latest game versions.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-crosshairs"></i></div>
+                    <h3 data-translate="feature7_title">Advanced Aiming</h3>
+                    <p data-translate="feature7_desc">Enhanced aiming precision for better control and accuracy.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-lock"></i></div>
+                    <h3 data-translate="feature8_title">Secure Subscription</h3>
+                    <p data-translate="feature8_desc">AES-encrypted licensing ensures your access stays safe and private.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3 data-translate="feature9_title">Headshot Mode</h3>
+                    <p data-translate="feature9_desc">Boost your precision with adjustable headshot targeting.</p>
                 </div>
             </div>
         </section>
-        
+
+        <section class="stats-section">
+            <h2><i class="fas fa-chart-line"></i> <span data-translate="stats_title">Our Impact</span></h2>
+            <div class="stats">
+                <div class="stat">
+                    <i class="fas fa-users"></i>
+                    <h3 data-translate="stat1">10,000+</h3>
+                    <p data-translate="stat1_desc">Happy Users</p>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-download"></i>
+                    <h3 data-translate="stat2">50,000+</h3>
+                    <p data-translate="stat2_desc">Downloads</p>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-gamepad"></i>
+                    <h3 data-translate="stat3">20+</h3>
+                    <p data-translate="stat3_desc">Supported Games</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-cog"></i> <span data-translate="setup_title">How to Get Started</span></h2>
+            <div class="setup-steps">
+                <div class="step">
+                    <h3 data-translate="step1_title">Step 1: Download</h3>
+                    <p data-translate="step1_desc">Click the download button to get the latest version of NoRecoilScript.</p>
+                </div>
+                <div class="step">
+                    <h3 data-translate="step2_title">Step 2: Install</h3>
+                    <p data-translate="step2_desc">Run the installer and follow the instructions in the video guide.</p>
+                </div>
+                <div class="step">
+                    <h3 data-translate="step3_title">Step 3: Configure</h3>
+                    <p data-translate="step3_desc">Open the app, select your game, and customize your settings.</p>
+                </div>
+                <div class="step">
+                    <h3 data-translate="step4_title">Step 4: Play</h3>
+                    <p data-translate="step4_desc">Launch your game and enjoy recoil-free gaming!</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-users"></i> <span data-translate="testimonials_title">What Our Users Say</span></h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p data-translate="testimonial1">"NoRecoilScript completely changed my gameplay! My aim is now on point in CS:GO."</p>
+                    <h4>- ProGamerX</h4>
+                </div>
+                <div class="testimonial">
+                    <p data-translate="testimonial2">"The customization options are insane. I love how I can tweak every weapon!"</p>
+                    <h4>- SniperKing</h4>
+                </div>
+                <div class="testimonial">
+                    <p data-translate="testimonial3">"Undetectable and easy to use. Best tool for competitive gaming."</p>
+                    <h4>- EliteShot</h4>
+                </div>
+            </div>
+        </section>
+
         <section>
             <h2><i class="fas fa-tags"></i> <span data-translate="pricing_title">Subscription Plans</span></h2>
             <div class="pricing">
@@ -438,8 +749,10 @@
                     <p data-translate="plan1_feature1">Full features for 7 days</p>
                     <p data-translate="plan1_feature2">Fast technical support</p>
                     <p data-translate="plan1_feature3">Instant updates</p>
+                    <a href="https://example.com/subscribe-weekly" class="btn-subscribe">
+                        <span data-translate="subscribe_btn">Subscribe Now</span>
+                    </a>
                 </div>
-                
                 <div class="price-plan recommended">
                     <div class="recommended-badge" data-translate="recommended">Recommended</div>
                     <h3 data-translate="plan2_title">Monthly Plan</h3>
@@ -447,56 +760,66 @@
                     <p data-translate="plan2_feature1">Full access for 30 days</p>
                     <p data-translate="plan2_feature2">Priority support</p>
                     <p data-translate="plan2_feature3">Regular updates</p>
+                    <a href="https://example.com/subscribe-monthly" class="btn-subscribe">
+                        <span data-translate="subscribe_btn">Subscribe Now</span>
+                    </a>
                 </div>
-                
                 <div class="price-plan">
                     <h3 data-translate="plan3_title">Quarterly Plan</h3>
                     <div class="price">$24.99</div>
                     <p data-translate="plan3_feature1">Save 17% compared to monthly</p>
                     <p data-translate="plan3_feature2">Priority support</p>
                     <p data-translate="plan3_feature3">Exclusive features</p>
+                    <a href="https://example.com/subscribe-quarterly" class="btn-subscribe">
+                        <span data-translate="subscribe_btn">Subscribe Now</span>
+                    </a>
                 </div>
-                
                 <div class="price-plan">
                     <h3 data-translate="plan4_title">Annual Plan</h3>
                     <div class="price">$79.99</div>
                     <p data-translate="plan4_feature1">Save 33% compared to monthly</p>
                     <p data-translate="plan4_feature2">Early access to new features</p>
                     <p data-translate="plan4_feature3">Dedicated support</p>
+                    <a href="https://example.com/subscribe-annual" class="btn-subscribe">
+                        <span data-translate="subscribe_btn">Subscribe Now</span>
+                    </a>
                 </div>
             </div>
         </section>
-        
+
         <section>
             <h2><i class="fas fa-question-circle"></i> <span data-translate="faq_title">FAQ</span></h2>
-            
             <div class="faq-item">
                 <h3 data-translate="faq1_question">Is the software free?</h3>
                 <p data-translate="faq1_answer">Yes, we offer a free 3-day trial to test all features before subscription.</p>
             </div>
-            
             <div class="faq-item">
                 <h3 data-translate="faq2_question">What are the subscription options?</h3>
                 <p data-translate="faq2_answer">We offer flexible plans: Weekly ($4.99), Monthly ($9.99), Quarterly ($24.99), Annual ($79.99).</p>
             </div>
-            
             <div class="faq-item">
                 <h3 data-translate="faq3_question">Is the software safe?</h3>
                 <p data-translate="faq3_answer">Yes, NoRecoilScript uses advanced technology to avoid detection while keeping your account safe.</p>
             </div>
-            
             <div class="faq-item">
                 <h3 data-translate="faq4_question">System requirements?</h3>
                 <p data-translate="faq4_answer">Requires Windows 10/11 with minimum 4GB RAM and internet connection for activation.</p>
             </div>
-            
             <div class="faq-item">
                 <h3 data-translate="faq5_question">How to get support?</h3>
                 <p data-translate="faq5_answer">Contact us via email or through the project page on GitHub.</p>
             </div>
         </section>
     </div>
-    
+
+    <div class="scroll-top" title="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <a href="mailto:tito_-@live.no" class="floating-contact">
+        <i class="fas fa-envelope"></i> <span data-translate="contact_us">Contact Us</span>
+    </a>
+
     <footer>
         <div class="container">
             <p data-translate="copyright">© 2025 NoRecoilScript. All rights reserved.</p>
@@ -506,6 +829,9 @@
                 </a> | 
                 <a href="mailto:tito_-@live.no" style="color: white; text-decoration: underline;">
                     <i class="fas fa-envelope"></i> <span data-translate="support_link">Technical Support</span>
+                </a> | 
+                <a href="https://discord.gg/your-discord-link" style="color: white; text-decoration: underline;">
+                    <i class="fab fa-discord"></i> <span data-translate="community_link">Join Our Community</span>
                 </a>
             </p>
             <p style="margin-top: 15px; font-size: 0.8rem;" data-translate="disclaimer">
@@ -515,30 +841,61 @@
     </footer>
 
     <script>
-        // ترجمة المحتوى
         const translations = {
             "en": {
                 "title": "NoRecoilScript - Game Recoil Removal Tool",
                 "description": "Advanced tool for recoil removal in games with strong protection against Anti-Cheat systems<br>Supports: BattleField, Call of Duty, Dirty Bomb, CS:GO, Arma and other games",
+                "news_title": "Latest News:",
+                "news_content": "Version 1.1.0 released with support for Valorant! 🎉",
                 "download_title": "Download",
                 "download_desc": "Download the latest version of NoRecoilScript and enjoy recoil-free gaming",
                 "download_btn": "Download Trial Version",
                 "version_info": "Version: 1.0.0 | Size: 18MB | Compatible with: Windows 10/11",
                 "video_title": "How to Use",
-                "video_desc": "Watch how NoRecoilScript can improve your gaming performance",
+                "video_desc": "Watch how to run NoRecoilScript",
+                "video1_title": "Getting Started Guide",
+                "video1_desc": "Learn how to install and configure NoRecoilScript",
+                "video2_title": "You can be the best at aiming",
+                "video2_desc": "See how NoRecoilScript can improve your gaming performance and excel in competitive play",
                 "features_title": "Features",
-                "feature1_title": "High Performance",
-                "feature1_desc": "Precise recoil control with minimal system resource usage",
-                "feature2_title": "Advanced Protection",
-                "feature2_desc": "Sophisticated technology to avoid detection by Anti-Cheat systems like BattleEye, EasyAntiCheat",
-                "feature3_title": "Wide Support",
-                "feature3_desc": "Compatible with over 20 popular games with one click",
-                "feature4_title": "Full Customization",
-                "feature4_desc": "Fine-tune settings for each weapon according to your needs",
-                "feature5_title": "Regular Updates",
-                "feature5_desc": "Weekly updates to ensure compatibility with latest game versions",
-                "feature6_title": "24/7 Support",
-                "feature6_desc": "Dedicated support team available around the clock",
+                "feature1_title": "Advanced Protection",
+                "feature1_desc": "Sophisticated technology to avoid detection by Anti-Cheat systems like BattleEye, EasyAntiCheat",
+                "feature2_title": "High Performance",
+                "feature2_desc": "Precise recoil control with minimal system resource usage",
+                "feature3_title": "Full Customization",
+                "feature3_desc": "Fine-tune settings for each weapon according to your needs",
+                "feature4_title": "Wide Support",
+                "feature4_desc": "Compatible with over 20 popular games with one click",
+                "feature5_title": "24/7 Support",
+                "feature5_desc": "Dedicated support team available around the clock",
+                "feature6_title": "Regular Updates",
+                "feature6_desc": "Weekly updates to ensure compatibility with latest game versions",
+                "feature7_title": "Advanced Aiming",
+                "feature7_desc": "Enhanced aiming precision for better control and accuracy",
+                "feature8_title": "Secure Subscription",
+                "feature8_desc": "AES-encrypted licensing ensures your access stays safe and private",
+                "feature9_title": "Headshot Mode",
+                "feature9_desc": "Boost your precision with adjustable headshot targeting",
+                "stats_title": "Our Impact",
+                "stat1": "10,000+",
+                "stat1_desc": "Happy Users",
+                "stat2": "50,000+",
+                "stat2_desc": "Downloads",
+                "stat3": "20+",
+                "stat3_desc": "Supported Games",
+                "setup_title": "How to Get Started",
+                "step1_title": "Step 1: Download",
+                "step1_desc": "Click the download button to get the latest version of NoRecoilScript.",
+                "step2_title": "Step 2: Install",
+                "step2_desc": "Run the installer and follow the instructions in the video guide.",
+                "step3_title": "Step 3: Configure",
+                "step3_desc": "Open the app, select your game, and customize your settings.",
+                "step4_title": "Step 4: Play",
+                "step4_desc": "Launch your game and enjoy recoil-free gaming!",
+                "testimonials_title": "What Our Users Say",
+                "testimonial1": "\"NoRecoilScript completely changed my gameplay! My aim is now on point in CS:GO.\"",
+                "testimonial2": "\"The customization options are insane. I love how I can tweak every weapon!\"",
+                "testimonial3": "\"Undetectable and easy to use. Best tool for competitive gaming.\"",
                 "pricing_title": "Subscription Plans",
                 "plan1_title": "Weekly Plan",
                 "plan1_feature1": "Full features for 7 days",
@@ -557,6 +914,7 @@
                 "plan4_feature2": "Early access to new features",
                 "plan4_feature3": "Dedicated support",
                 "recommended": "Recommended",
+                "subscribe_btn": "Subscribe Now",
                 "faq_title": "FAQ",
                 "faq1_question": "Is the software free?",
                 "faq1_answer": "Yes, we offer a free 3-day trial to test all features before subscription.",
@@ -568,33 +926,67 @@
                 "faq4_answer": "Requires Windows 10/11 with minimum 4GB RAM and internet connection for activation.",
                 "faq5_question": "How to get support?",
                 "faq5_answer": "Contact us via email or through the project page on GitHub.",
+                "contact_us": "Contact Us",
                 "copyright": "© 2025 NoRecoilScript. All rights reserved.",
                 "github_link": "Project on GitHub",
                 "support_link": "Technical Support",
+                "community_link": "Join Our Community",
                 "disclaimer": "This software is for legal use only. We are not responsible for any illegal use."
             },
             "ar": {
                 "title": "NoRecoilScript - أداة إزالة الارتداد للألعاب",
                 "description": "أداة متقدمة لإزالة الارتداد في الألعاب مع حماية قوية ضد أنظمة Anti-Cheat<br>يدعم: BattleField, Call of Duty, Dirty Bomb, CS:GO, Arma وغيرها من الألعاب",
+                "news_title": "آخر الأخبار:",
+                "news_content": "تم إصدار الإصدار 1.1.0 مع دعم للعبة Valorant! 🎉",
                 "download_title": "تنزيل البرنامج",
                 "download_desc": "قم بتنزيل أحدث إصدار من NoRecoilScript واستمتع بتجربة لعب خالية من الارتداد",
                 "download_btn": "تنزيل النسخة التجريبية",
                 "version_info": "الإصدار: 1.0.0 | الحجم: 18MB | متوافق مع: Windows 10/11",
                 "video_title": "شرح استخدام البرنامج",
-                "video_desc": "شاهد كيف يمكن لـ NoRecoilScript تحسين أدائك في الألعاب",
+                "video_desc": "شاهد طريقة تشغيل NoRecoilScript",
+                "video1_title": "دليل المبتدئين",
+                "video1_desc": "تعلم كيفية تثبيت وتكوين NoRecoilScript",
+                "video2_title": "يمكنك أن تكون الأفضل في التصويب",
+                "video2_desc": "شاهد كيف يمكن لبرنامج NoRecoilScript تحسين أداء الألعاب لديك والتفوق في اللعب التنافسي",
                 "features_title": "مميزات NoRecoilScript",
-                "feature1_title": "أداء فائق",
-                "feature1_desc": "تحكم دقيق في الارتداد مع استهلاك ضئيل لموارد النظام",
-                "feature2_title": "حماية متقدمة",
-                "feature2_desc": "تقنية متطورة لتجنب الكشف من أنظمة Anti-Cheat مثل BattleEye, EasyAntiCheat",
-                "feature3_title": "دعم واسع",
-                "feature3_desc": "متوافق مع أكثر من 20 لعبة شعبية بمجرد الضغطة",
-                "feature4_title": "تخصيص كامل",
-                "feature4_desc": "ضبط دقيق لكل سلاح وفقاً لاحتياجاتك",
-                "feature5_title": "تحديثات مستمرة",
-                "feature5_desc": "تحديثات أسبوعية لضمان التوافق مع أحدث إصدارات الألعاب",
-                "feature6_title": "دعم فني",
-                "feature6_desc": "فريق دعم متاح 24/7 لمساعدتك في أي استفسار",
+                "feature1_title": "حماية متقدمة",
+                "feature1_desc": "تقنية متطورة لتجنب الكشف من أنظمة Anti-Cheat مثل BattleEye, EasyAntiCheat",
+                "feature2_title": "أداء فائق",
+                "feature2_desc": "تحكم دقيق في الارتداد مع استهلاك ضئيل لموارد النظام",
+                "feature3_title": "تخصيص كامل",
+                "feature3_desc": "ضبط دقيق لكل سلاح وفقاً لاحتياجاتك",
+                "feature4_title": "دعم واسع",
+                "feature4_desc": "متوافق مع أكثر من 20 لعبة شعبية بمجرد الضغطة",
+                "feature5_title": "دعم فني",
+                "feature5_desc": "فريق دعم متاح 24/7 لمساعدتك في أي استفسار",
+                "feature6_title": "تحديثات مستمرة",
+                "feature6_desc": "تحديثات أسبوعية لضمان التوافق مع أحدث إصدارات الألعاب",
+                "feature7_title": "تصويب متقدم",
+                "feature7_desc": "دقة عالية في التصويب لتحكم وأداء أفضل",
+                "feature8_title": "اشتراك آمن",
+                "feature8_desc": "نظام ترخيص مشفر بـ AES لضمان أمان وخصوصية اشتراكك",
+                "feature9_title": "وضع Headshot",
+                "feature9_desc": "زيادة الدقة مع وضع التصويب على الرأس القابل للتعديل",
+                "stats_title": "تأثيرنا",
+                "stat1": "10,000+",
+                "stat1_desc": "مستخدم سعيد",
+                "stat2": "50,000+",
+                "stat2_desc": "تنزيلات",
+                "stat3": "20+",
+                "stat3_desc": "ألعاب مدعومة",
+                "setup_title": "كيف تبدأ",
+                "step1_title": "الخطوة 1: التنزيل",
+                "step1_desc": "انقر على زر التنزيل للحصول على أحدث إصدار من NoRecoilScript.",
+                "step2_title": "الخطوة 2: التثبيت",
+                "step2_desc": "قم بتشغيل برنامج التثبيت واتبع الإرشادات الموجودة في دليل الفيديو..",
+                "step3_title": "الخطوة 3: الإعداد",
+                "step3_desc": "افتح التطبيق، اختر لعبتك، وقم بتخصيص إعداداتك.",
+                "step4_title": "الخطوة 4: العب",
+                "step4_desc": "شغّل لعبتك واستمتع بتجربة لعب خالية من الارتداد!",
+                "testimonials_title": "ماذا يقول مستخدمونا",
+                "testimonial1": "\"NoRecoilScript غيّر طريقة لعبي تمامًا! تصويبي الآن مثالي في CS:GO.\"",
+                "testimonial2": "\"خيارات التخصيص مذهلة. أحب كيف يمكنني تعديل كل سلاح!\"",
+                "testimonial3": "\"غير قابل للاكتشاف وسهل الاستخدام. أفضل أداة للعب التنافسي.\"",
                 "pricing_title": "خطط الاشتراك",
                 "plan1_title": "الاشتراك الأسبوعي",
                 "plan1_feature1": "تجربة كافة الميزات لمدة 7 أيام",
@@ -613,6 +1005,7 @@
                 "plan4_feature2": "وصول مبكر للميزات الجديدة",
                 "plan4_feature3": "دعم فني مخصص",
                 "recommended": "موصى به",
+                "subscribe_btn": "اشترك الآن",
                 "faq_title": "الأسئلة الشائعة",
                 "faq1_question": "هل البرنامج مجاني؟",
                 "faq1_answer": "نعم، نوفر نسخة تجريبية مجانية لمدة 3 أيام لتجربة جميع الميزات قبل الاشتراك.",
@@ -624,20 +1017,18 @@
                 "faq4_answer": "يتطلب Windows 10/11 مع 4GB RAM كحد أدنى واتصال بالإنترنت للتفعيل.",
                 "faq5_question": "كيف أحصل على الدعم الفني؟",
                 "faq5_answer": "يمكنك التواصل معنا عبر البريد الإلكتروني أو من خلال صفحة المشروع على GitHub.",
+                "contact_us": "تواصل معنا",
                 "copyright": "© 2025 NoRecoilScript. جميع الحقوق محفوظة.",
                 "github_link": "صفحة المشروع على GitHub",
                 "support_link": "الدعم الفني",
+                "community_link": "انضم إلى مجتمعنا",
                 "disclaimer": "هذا البرنامج مخصص للاستخدام القانوني فقط. لا نتحمل مسؤولية أي استخدام غير قانوني."
             }
         };
 
-        // وظيفة تبديل اللغة
         function switchLanguage(lang) {
-            // تغيير اتجاه الصفحة
             document.documentElement.lang = lang;
             document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-            
-            // تحديث النصوص
             document.querySelectorAll('[data-translate]').forEach(element => {
                 const key = element.getAttribute('data-translate');
                 if (translations[lang][key]) {
@@ -648,28 +1039,38 @@
                     }
                 }
             });
-            
-            // تحديث حالة أزرار اللغة
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
             document.getElementById(`switchTo${lang === 'ar' ? 'Arabic' : 'English'}`).classList.add('active');
-            
-            // تحديث عنوان الصفحة
             document.title = translations[lang]['title'];
-            
-            // حفظ التفضيل في localStorage
             localStorage.setItem('preferredLanguage', lang);
         }
 
-        // استعادة اللغة المفضلة عند تحميل الصفحة
         document.addEventListener('DOMContentLoaded', () => {
+            // Initialize language
             const preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
             switchLanguage(preferredLanguage);
             
-            // إضافة مستمعين لأزرار اللغة
+            // Language switcher event listeners
             document.getElementById('switchToArabic').addEventListener('click', () => switchLanguage('ar'));
             document.getElementById('switchToEnglish').addEventListener('click', () => switchLanguage('en'));
+
+            // Scroll to top button
+            const scrollTopBtn = document.querySelector('.scroll-top');
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    scrollTopBtn.classList.add('visible');
+                } else {
+                    scrollTopBtn.classList.remove('visible');
+                }
+            });
+            scrollTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
         });
     </script>
 </body>
