@@ -20,6 +20,7 @@
             background-color: var(--secondary-color);
             margin: 0;
             padding: 0;
+            transition: all 0.3s ease;
         }
         
         .container {
@@ -36,6 +37,7 @@
             text-align: center;
             margin-bottom: 30px;
             background-image: linear-gradient(to right, #1a1a1a, #2d2d2d);
+            position: relative;
         }
         
         h1 {
@@ -235,6 +237,44 @@
             margin: 15px 0;
         }
         
+        /* Language Switcher Styles */
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 5px;
+        }
+        
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .lang-btn.active {
+            background: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        [dir="rtl"] .language-switcher {
+            right: 20px;
+            left: auto;
+        }
+        
         @media (max-width: 768px) {
             .feature, .price-plan {
                 flex-basis: 100%;
@@ -247,16 +287,32 @@
             h1 {
                 font-size: 2rem;
             }
+            
+            .language-switcher {
+                position: static;
+                justify-content: center;
+                margin-bottom: 15px;
+            }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
 </head>
 <body>
     <header>
         <div class="container">
+            <div class="language-switcher">
+                <button id="switchToEnglish" class="lang-btn" title="English">
+                    <span class="flag-icon flag-icon-us"></span> English
+                </button>
+                <button id="switchToArabic" class="lang-btn active" title="العربية">
+                    <span class="flag-icon flag-icon-sa"></span> العربية
+                </button>
+            </div>
+            
             <img src="https://i.ibb.co/kV5sDBPM/11.png" alt="NoRecoilScript Logo" class="logo">
-            <h1>NoRecoilScript</h1>
-            <p class="description">
+            <h1 data-translate="title">NoRecoilScript</h1>
+            <p class="description" data-translate="description">
                 أداة متقدمة لإزالة الارتداد في الألعاب مع حماية قوية ضد أنظمة Anti-Cheat<br>
                 يدعم: BattleField, Call of Duty, Dirty Bomb, CS:GO, Arma وغيرها من الألعاب
             </p>
@@ -265,159 +321,308 @@
     
     <div class="container">
         <section class="download-section">
-            <h2><i class="fas fa-download"></i> تنزيل البرنامج</h2>
-            <p>قم بتنزيل أحدث إصدار من NoRecoilScript واستمتع بتجربة لعب خالية من الارتداد</p>
+            <h2><i class="fas fa-download"></i> <span data-translate="download_title">تنزيل البرنامج</span></h2>
+            <p data-translate="download_desc">قم بتنزيل أحدث إصدار من NoRecoilScript واستمتع بتجربة لعب خالية من الارتداد</p>
             
             <a href="https://github.com/JaladPS/NoRecoilScript/releases/download/v1.0.0/NoRecoilScript.exe" class="btn-download">
-                <i class="fas fa-download"></i> تنزيل النسخة التجريبية
+                <i class="fas fa-download"></i> <span data-translate="download_btn">تنزيل النسخة التجريبية</span>
             </a>
             
             <div class="version-info">
-                <p>الإصدار: 1.0.0 | الحجم: 18MB | متوافق مع: Windows 10/11</p>
+                <p data-translate="version_info">الإصدار: 1.0.0 | الحجم: 18MB | متوافق مع: Windows 10/11</p>
             </div>
             
             <div class="screenshots">
-                <img src="https://i.ibb.co/1tJp6DK2/Screenshot-2025-03-29-215439.png" alt="واجهة NoRecoilScript" class="screenshot">
-                <img src="https://i.ibb.co/Q7CpD7MS/Screenshot-2025-03-29-215455.png" alt="إعدادات NoRecoilScript" class="screenshot">
+                <img src="https://i.ibb.co/1tJp6DK2/Screenshot-2025-03-29-215439.png" alt="NoRecoilScript Interface" class="screenshot">
+                <img src="https://i.ibb.co/Q7CpD7MS/Screenshot-2025-03-29-215455.png" alt="NoRecoilScript Settings" class="screenshot">
             </div>
         </section>
         
         <section class="video-section">
-            <h2><i class="fas fa-video"></i> شرح استخدام البرنامج</h2>
-            <p>شاهد كيف يمكن لـ NoRecoilScript تحسين أدائك في الألعاب</p>
+            <h2><i class="fas fa-video"></i> <span data-translate="video_title">شرح استخدام البرنامج</span></h2>
+            <p data-translate="video_desc">شاهد كيف يمكن لـ NoRecoilScript تحسين أدائك في الألعاب</p>
             
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/6Bw15FHRmcc" title="NoRecoilScript شرح استخدام" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/6Bw15FHRmcc" title="NoRecoilScript Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </section>
         
         <section>
-            <h2><i class="fas fa-star"></i> مميزات NoRecoilScript</h2>
+            <h2><i class="fas fa-star"></i> <span data-translate="features_title">مميزات NoRecoilScript</span></h2>
             <div class="features">
                 <div class="feature">
                     <div class="feature-icon">
                         <i class="fas fa-tachometer-alt"></i>
                     </div>
-                    <h3>أداء فائق</h3>
-                    <p>تحكم دقيق في الارتداد مع استهلاك ضئيل لموارد النظام</p>
+                    <h3 data-translate="feature1_title">أداء فائق</h3>
+                    <p data-translate="feature1_desc">تحكم دقيق في الارتداد مع استهلاك ضئيل لموارد النظام</p>
                 </div>
                 
                 <div class="feature">
                     <div class="feature-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3>حماية متقدمة</h3>
-                    <p>تقنية متطورة لتجنب الكشف من أنظمة Anti-Cheat مثل BattleEye, EasyAntiCheat</p>
+                    <h3 data-translate="feature2_title">حماية متقدمة</h3>
+                    <p data-translate="feature2_desc">تقنية متطورة لتجنب الكشف من أنظمة Anti-Cheat مثل BattleEye, EasyAntiCheat</p>
                 </div>
                 
                 <div class="feature">
                     <div class="feature-icon">
                         <i class="fas fa-gamepad"></i>
                     </div>
-                    <h3>دعم واسع</h3>
-                    <p>متوافق مع أكثر من 20 لعبة شعبية بمجرد الضغطة</p>
+                    <h3 data-translate="feature3_title">دعم واسع</h3>
+                    <p data-translate="feature3_desc">متوافق مع أكثر من 20 لعبة شعبية بمجرد الضغطة</p>
                 </div>
                 
                 <div class="feature">
                     <div class="feature-icon">
                         <i class="fas fa-sliders-h"></i>
                     </div>
-                    <h3>تخصيص كامل</h3>
-                    <p>ضبط دقيق لكل سلاح وفقاً لاحتياجاتك</p>
+                    <h3 data-translate="feature4_title">تخصيص كامل</h3>
+                    <p data-translate="feature4_desc">ضبط دقيق لكل سلاح وفقاً لاحتياجاتك</p>
                 </div>
                 
                 <div class="feature">
                     <div class="feature-icon">
                         <i class="fas fa-sync-alt"></i>
                     </div>
-                    <h3>تحديثات مستمرة</h3>
-                    <p>تحديثات أسبوعية لضمان التوافق مع أحدث إصدارات الألعاب</p>
+                    <h3 data-translate="feature5_title">تحديثات مستمرة</h3>
+                    <p data-translate="feature5_desc">تحديثات أسبوعية لضمان التوافق مع أحدث إصدارات الألعاب</p>
                 </div>
                 
                 <div class="feature">
                     <div class="feature-icon">
                         <i class="fas fa-headset"></i>
                     </div>
-                    <h3>دعم فني</h3>
-                    <p>فريق دعم متاح 24/7 لمساعدتك في أي استفسار</p>
+                    <h3 data-translate="feature6_title">دعم فني</h3>
+                    <p data-translate="feature6_desc">فريق دعم متاح 24/7 لمساعدتك في أي استفسار</p>
                 </div>
             </div>
         </section>
         
         <section>
-            <h2><i class="fas fa-tags"></i> خطط الاشتراك</h2>
+            <h2><i class="fas fa-tags"></i> <span data-translate="pricing_title">خطط الاشتراك</span></h2>
             <div class="pricing">
                 <div class="price-plan">
-                    <h3>الاشتراك الأسبوعي</h3>
+                    <h3 data-translate="plan1_title">الاشتراك الأسبوعي</h3>
                     <div class="price">$4.99</div>
-                    <p>تجربة كافة الميزات لمدة 7 أيام</p>
-                    <p>دعم فني سريع</p>
-                    <p>تحديثات فورية</p>
+                    <p data-translate="plan1_feature1">تجربة كافة الميزات لمدة 7 أيام</p>
+                    <p data-translate="plan1_feature2">دعم فني سريع</p>
+                    <p data-translate="plan1_feature3">تحديثات فورية</p>
                 </div>
                 
                 <div class="price-plan" style="border: 2px solid var(--primary-color); transform: scale(1.05);">
-                    <h3>الاشتراك ربع السنوي</h3>
+                    <h3 data-translate="plan2_title">الاشتراك ربع السنوي</h3>
                     <div class="price">$14.99</div>
-                    <p>وفر 25% عن الاشتراك الشهري</p>
-                    <p>أولوية في الدعم الفني</p>
-                    <p>ميزات حصرية</p>
+                    <p data-translate="plan2_feature1">وفر 25% عن الاشتراك الشهري</p>
+                    <p data-translate="plan2_feature2">أولوية في الدعم الفني</p>
+                    <p data-translate="plan2_feature3">ميزات حصرية</p>
                 </div>
                 
                 <div class="price-plan">
-                    <h3>الاشتراك السنوي</h3>
+                    <h3 data-translate="plan3_title">الاشتراك السنوي</h3>
                     <div class="price">$39.99</div>
-                    <p>وفر 40% عن الاشتراك الشهري</p>
-                    <p>وصول مبكر للميزات الجديدة</p>
-                    <p>دعم فني مخصص</p>
+                    <p data-translate="plan3_feature1">وفر 40% عن الاشتراك الشهري</p>
+                    <p data-translate="plan3_feature2">وصول مبكر للميزات الجديدة</p>
+                    <p data-translate="plan3_feature3">دعم فني مخصص</p>
                 </div>
             </div>
         </section>
         
         <section>
-            <h2><i class="fas fa-question-circle"></i> الأسئلة الشائعة</h2>
+            <h2><i class="fas fa-question-circle"></i> <span data-translate="faq_title">الأسئلة الشائعة</span></h2>
             
             <div class="faq-item">
-                <h3>هل البرنامج مجاني؟</h3>
-                <p>نعم، نوفر نسخة تجريبية مجانية لمدة 3 أيام لتجربة جميع الميزات قبل الاشتراك.</p>
+                <h3 data-translate="faq1_question">هل البرنامج مجاني؟</h3>
+                <p data-translate="faq1_answer">نعم، نوفر نسخة تجريبية مجانية لمدة 3 أيام لتجربة جميع الميزات قبل الاشتراك.</p>
             </div>
             
             <div class="faq-item">
-                <h3>ما هي مدة الاشتراك؟</h3>
-                <p>نقدم خطط اشتراك مرنة: أسبوعي (4.99$)، ثلاثة أشهر (14.99$)، سنوي (39.99$).</p>
+                <h3 data-translate="faq2_question">ما هي مدة الاشتراك؟</h3>
+                <p data-translate="faq2_answer">نقدم خطط اشتراك مرنة: أسبوعي (4.99$)، ربع سنوي (14.99$)، سنوي (39.99$).</p>
             </div>
             
             <div class="faq-item">
-                <h3>هل البرنامج آمن؟</h3>
-                <p>نعم، NoRecoilScript يستخدم تقنيات متقدمة لتجنب الكشف مع الحفاظ على أمان حسابك.</p>
+                <h3 data-translate="faq3_question">هل البرنامج آمن؟</h3>
+                <p data-translate="faq3_answer">نعم، NoRecoilScript يستخدم تقنيات متقدمة لتجنب الكشف مع الحفاظ على أمان حسابك.</p>
             </div>
             
             <div class="faq-item">
-                <h3>ما هي متطلبات التشغيل؟</h3>
-                <p>يتطلب Windows 10/11 مع 4GB RAM كحد أدنى واتصال بالإنترنت للتفعيل.</p>
+                <h3 data-translate="faq4_question">ما هي متطلبات التشغيل؟</h3>
+                <p data-translate="faq4_answer">يتطلب Windows 10/11 مع 4GB RAM كحد أدنى واتصال بالإنترنت للتفعيل.</p>
             </div>
             
             <div class="faq-item">
-                <h3>كيف أحصل على الدعم الفني؟</h3>
-                <p>يمكنك التواصل معنا عبر البريد الإلكتروني أو من خلال صفحة المشروع على GitHub.</p>
+                <h3 data-translate="faq5_question">كيف أحصل على الدعم الفني؟</h3>
+                <p data-translate="faq5_answer">يمكنك التواصل معنا عبر البريد الإلكتروني أو من خلال صفحة المشروع على GitHub.</p>
             </div>
         </section>
     </div>
     
     <footer>
         <div class="container">
-            <p>© 2025 NoRecoilScript. جميع الحقوق محفوظة.</p>
+            <p data-translate="copyright">© 2025 NoRecoilScript. جميع الحقوق محفوظة.</p>
             <p>
                 <a href="https://github.com/JaladPS" style="color: white; text-decoration: underline;">
-                    <i class="fab fa-github"></i> صفحة المشروع على GitHub
+                    <i class="fab fa-github"></i> <span data-translate="github_link">صفحة المشروع على GitHub</span>
                 </a> | 
                 <a href="mailto:tito_-@live.no" style="color: white; text-decoration: underline;">
-                    <i class="fas fa-envelope"></i> الدعم الفني
+                    <i class="fas fa-envelope"></i> <span data-translate="support_link">الدعم الفني</span>
                 </a>
             </p>
-            <p style="margin-top: 15px; font-size: 0.8rem;">
+            <p style="margin-top: 15px; font-size: 0.8rem;" data-translate="disclaimer">
                 هذا البرنامج مخصص للاستخدام القانوني فقط. لا نتحمل مسؤولية أي استخدام غير قانوني.
             </p>
         </div>
     </footer>
+
+    <script>
+        // ترجمة المحتوى
+        const translations = {
+            "ar": {
+                "title": "NoRecoilScript - أداة إزالة الارتداد للألعاب",
+                "description": "أداة متقدمة لإزالة الارتداد في الألعاب مع حماية قوية ضد أنظمة Anti-Cheat<br>يدعم: BattleField, Call of Duty, Dirty Bomb, CS:GO, Arma وغيرها من الألعاب",
+                "download_title": "تنزيل البرنامج",
+                "download_desc": "قم بتنزيل أحدث إصدار من NoRecoilScript واستمتع بتجربة لعب خالية من الارتداد",
+                "download_btn": "تنزيل النسخة التجريبية",
+                "version_info": "الإصدار: 1.0.0 | الحجم: 18MB | متوافق مع: Windows 10/11",
+                "video_title": "شرح استخدام البرنامج",
+                "video_desc": "شاهد كيف يمكن لـ NoRecoilScript تحسين أدائك في الألعاب",
+                "features_title": "مميزات NoRecoilScript",
+                "feature1_title": "أداء فائق",
+                "feature1_desc": "تحكم دقيق في الارتداد مع استهلاك ضئيل لموارد النظام",
+                "feature2_title": "حماية متقدمة",
+                "feature2_desc": "تقنية متطورة لتجنب الكشف من أنظمة Anti-Cheat مثل BattleEye, EasyAntiCheat",
+                "feature3_title": "دعم واسع",
+                "feature3_desc": "متوافق مع أكثر من 20 لعبة شعبية بمجرد الضغطة",
+                "feature4_title": "تخصيص كامل",
+                "feature4_desc": "ضبط دقيق لكل سلاح وفقاً لاحتياجاتك",
+                "feature5_title": "تحديثات مستمرة",
+                "feature5_desc": "تحديثات أسبوعية لضمان التوافق مع أحدث إصدارات الألعاب",
+                "feature6_title": "دعم فني",
+                "feature6_desc": "فريق دعم متاح 24/7 لمساعدتك في أي استفسار",
+                "pricing_title": "خطط الاشتراك",
+                "plan1_title": "الاشتراك الأسبوعي",
+                "plan1_feature1": "تجربة كافة الميزات لمدة 7 أيام",
+                "plan1_feature2": "دعم فني سريع",
+                "plan1_feature3": "تحديثات فورية",
+                "plan2_title": "الاشتراك ربع السنوي",
+                "plan2_feature1": "وفر 25% عن الاشتراك الشهري",
+                "plan2_feature2": "أولوية في الدعم الفني",
+                "plan2_feature3": "ميزات حصرية",
+                "plan3_title": "الاشتراك السنوي",
+                "plan3_feature1": "وفر 40% عن الاشتراك الشهري",
+                "plan3_feature2": "وصول مبكر للميزات الجديدة",
+                "plan3_feature3": "دعم فني مخصص",
+                "faq_title": "الأسئلة الشائعة",
+                "faq1_question": "هل البرنامج مجاني؟",
+                "faq1_answer": "نعم، نوفر نسخة تجريبية مجانية لمدة 3 أيام لتجربة جميع الميزات قبل الاشتراك.",
+                "faq2_question": "ما هي مدة الاشتراك؟",
+                "faq2_answer": "نقدم خطط اشتراك مرنة: أسبوعي (4.99$)، ربع سنوي (14.99$)، سنوي (39.99$).",
+                "faq3_question": "هل البرنامج آمن؟",
+                "faq3_answer": "نعم، NoRecoilScript يستخدم تقنيات متقدمة لتجنب الكشف مع الحفاظ على أمان حسابك.",
+                "faq4_question": "ما هي متطلبات التشغيل؟",
+                "faq4_answer": "يتطلب Windows 10/11 مع 4GB RAM كحد أدنى واتصال بالإنترنت للتفعيل.",
+                "faq5_question": "كيف أحصل على الدعم الفني؟",
+                "faq5_answer": "يمكنك التواصل معنا عبر البريد الإلكتروني أو من خلال صفحة المشروع على GitHub.",
+                "copyright": "© 2025 NoRecoilScript. جميع الحقوق محفوظة.",
+                "github_link": "صفحة المشروع على GitHub",
+                "support_link": "الدعم الفني",
+                "disclaimer": "هذا البرنامج مخصص للاستخدام القانوني فقط. لا نتحمل مسؤولية أي استخدام غير قانوني."
+            },
+            "en": {
+                "title": "NoRecoilScript - Game Recoil Removal Tool",
+                "description": "Advanced tool for recoil removal in games with strong protection against Anti-Cheat systems<br>Supports: BattleField, Call of Duty, Dirty Bomb, CS:GO, Arma and other games",
+                "download_title": "Download",
+                "download_desc": "Download the latest version of NoRecoilScript and enjoy recoil-free gaming",
+                "download_btn": "Download Trial Version",
+                "version_info": "Version: 1.0.0 | Size: 18MB | Compatible with: Windows 10/11",
+                "video_title": "How to Use",
+                "video_desc": "Watch how NoRecoilScript can improve your gaming performance",
+                "features_title": "Features",
+                "feature1_title": "High Performance",
+                "feature1_desc": "Precise recoil control with minimal system resource usage",
+                "feature2_title": "Advanced Protection",
+                "feature2_desc": "Sophisticated technology to avoid detection by Anti-Cheat systems like BattleEye, EasyAntiCheat",
+                "feature3_title": "Wide Support",
+                "feature3_desc": "Compatible with over 20 popular games with one click",
+                "feature4_title": "Full Customization",
+                "feature4_desc": "Fine-tune settings for each weapon according to your needs",
+                "feature5_title": "Regular Updates",
+                "feature5_desc": "Weekly updates to ensure compatibility with latest game versions",
+                "feature6_title": "24/7 Support",
+                "feature6_desc": "Dedicated support team available around the clock",
+                "pricing_title": "Subscription Plans",
+                "plan1_title": "Weekly Plan",
+                "plan1_feature1": "Full features for 7 days",
+                "plan1_feature2": "Fast technical support",
+                "plan1_feature3": "Instant updates",
+                "plan2_title": "Quarterly Plan",
+                "plan2_feature1": "Save 25% compared to monthly",
+                "plan2_feature2": "Priority support",
+                "plan2_feature3": "Exclusive features",
+                "plan3_title": "Annual Plan",
+                "plan3_feature1": "Save 40% compared to monthly",
+                "plan3_feature2": "Early access to new features",
+                "plan3_feature3": "Dedicated support",
+                "faq_title": "FAQ",
+                "faq1_question": "Is the software free?",
+                "faq1_answer": "Yes, we offer a free 3-day trial to test all features before subscription.",
+                "faq2_question": "What are the subscription options?",
+                "faq2_answer": "We offer flexible plans: Weekly ($4.99), Quarterly ($14.99), Annual ($39.99).",
+                "faq3_question": "Is the software safe?",
+                "faq3_answer": "Yes, NoRecoilScript uses advanced technology to avoid detection while keeping your account safe.",
+                "faq4_question": "System requirements?",
+                "faq4_answer": "Requires Windows 10/11 with minimum 4GB RAM and internet connection for activation.",
+                "faq5_question": "How to get support?",
+                "faq5_answer": "Contact us via email or through the project page on GitHub.",
+                "copyright": "© 2025 NoRecoilScript. All rights reserved.",
+                "github_link": "Project on GitHub",
+                "support_link": "Technical Support",
+                "disclaimer": "This software is for legal use only. We are not responsible for any illegal use."
+            }
+        };
+
+        // وظيفة تبديل اللغة
+        function switchLanguage(lang) {
+            // تغيير اتجاه الصفحة
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            
+            // تحديث النصوص
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.value = translations[lang][key];
+                    } else {
+                        element.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+            
+            // تحديث حالة أزرار اللغة
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(`switchTo${lang === 'ar' ? 'Arabic' : 'English'}`).classList.add('active');
+            
+            // تحديث عنوان الصفحة
+            document.title = translations[lang]['title'];
+            
+            // حفظ التفضيل في localStorage
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // استعادة اللغة المفضلة عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', () => {
+            const preferredLanguage = localStorage.getItem('preferredLanguage') || 'ar';
+            switchLanguage(preferredLanguage);
+            
+            // إضافة مستمعين لأزرار اللغة
+            document.getElementById('switchToEnglish').addEventListener('click', () => switchLanguage('en'));
+            document.getElementById('switchToArabic').addEventListener('click', () => switchLanguage('ar'));
+        });
+    </script>
 </body>
 </html>
